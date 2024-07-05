@@ -6,10 +6,11 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  base: SITE.base,
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -38,4 +39,6 @@ export default defineConfig({
     },
   },
   scopedStyleStrategy: "where",
+  adapter: netlify(),
+  output: "server",
 });
