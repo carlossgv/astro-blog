@@ -30,6 +30,18 @@ export const SOCIALS: SocialObjects = [
     linkTitle: ` ${SITE.title} on Github`,
     active: true,
   },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/carlossgv",
+    linkTitle: `${SITE.title} on LinkedIn`,
+    active: true,
+  },
+  // {
+  //   name: "Mail",
+  //   href: "mailto:carlossgv@gmail.com",
+  //   linkTitle: `Send an email to ${SITE.title}`,
+  //   active: false,
+  // },
   // {
   //   name: "Facebook",
   //   href: "https://github.com/satnaing/astro-paper",
@@ -42,18 +54,6 @@ export const SOCIALS: SocialObjects = [
   //   linkTitle: `${SITE.title} on Instagram`,
   //   active: true,
   // },
-  {
-    name: "LinkedIn",
-    href: "https://linkein.com/in/carlossgv",
-    linkTitle: `${SITE.title} on LinkedIn`,
-    active: true,
-  },
-  {
-    name: "Mail",
-    href: "mailto:carlossgv@gmail.com",
-    linkTitle: `Send an email to ${SITE.title}`,
-    active: false,
-  },
   // {
   //   name: "Twitter",
   //   href: "https://github.com/satnaing/astro-paper",
