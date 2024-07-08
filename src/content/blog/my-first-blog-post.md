@@ -10,7 +10,7 @@ featured: false
 title: My First Blog Post
 ---
 
-# My First Blog Post 1
+# My First Blog Post
 
 ### Creating internal links
 
