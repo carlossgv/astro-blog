@@ -8,6 +8,7 @@ aliases:
 tags: []
 author: Carlos G.
 description: ""
+draft: false
 featured: false
 title: My Second Blog Post
 ---
