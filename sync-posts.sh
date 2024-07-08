@@ -34,7 +34,6 @@ do
   fi
 done
 
-
 # Function to update links in a file
 update_links() {
   local file="$1"
@@ -55,6 +54,14 @@ do
   
   if [ ! -f "$dest_file" ] || [ "$src_mod_time" -ne "$dest_mod_time" ]
   then
+    # Get the title of the post from # title: in the file
+    title=$(grep "^title: " "$src_file" | sed "s/^title: //")
+    # Replace title: rest of line with title: "title"
+    sed -i "s/^title: .*/title: \"$title\"/" "$src_file"
+    # Delete line with # title
+    sed -i "/^# title: /d" "$src_file"
+
+    # Update the modDatetime field in the file
     sed "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$src_file" > tmp
     
     # Update links in the file
