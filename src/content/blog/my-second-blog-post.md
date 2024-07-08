@@ -1,22 +1,32 @@
 ---
 id: my-second-blog-post
 aliases:
-  - My second Blog Post
-  - My Second Blog Post
-  - My Second Blog Post 2
-  - My Second Blog Post 3
+  - My Tips
 tags: []
 author: Carlos G.
 description: ""
-draft: false
 featured: false
-modDatetime: ""
-pubDatetime: ""
-title: My Second Blog Post
+modDatetime: 2024-07-08T18:56:24.000Z
+pubDatetime: 2024-07-08T12:43:29.000Z
+title: My Tips
 ---
 
-# My Second Blog Post
 
+---
+id: cheat-sheet
+aliases:
+  - My Tips
+tags:
+  - markdown
+  - cheat-sheet
+author: Carlos G.
+description: ""
+featured: true
+pubDateTime: 2024-07-07T09:22:39.000Z
+title: My Tips
+---
+
+# My Tips
 ### Creating internal links
 
 `[<name>](<file path without quotes but with file extension>)`
