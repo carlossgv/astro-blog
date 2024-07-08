@@ -32,12 +32,14 @@ get_mod_time() {
 for FILE in $ASSETS_FILES; do
   src_file="$FILE"
   dest_file="$ASSETS_DEST_DIR$(basename $FILE)"
+  echo "Copying $src_file to $dest_file"
   
   # Get the last modification times
   src_mod_time=$(get_mod_time "$src_file")
   dest_mod_time=$(get_mod_time "$dest_file")
   
   if [ ! -f "$dest_file" ] || [ "$src_mod_time" -ne "$dest_mod_time" ]; then
+    echo "Copying $src_file to $dest_file"
     cp "$src_file" "$dest_file"
   fi
 done
@@ -45,53 +47,56 @@ done
 # Function to update links in a file
 update_links() {
   local file="$1"
+  echo "Updating links in $file"
   local src_pattern="3-resources/blog-posts/assets/imgs/"
   local dest_pattern="@assets/images/"
 
-  sed "s,$src_pattern,$dest_pattern,g" "$file"
+  sed "s,$src_pattern,$dest_pattern,g" "$file" > tmp
 }
 
 for FILE in $FILES; do
   src_file="$POSTS_DIR$FILE"
   dest_file="$DEST_DIR$FILE"
+  temp_file="$DEST_DIR/temp.md"
   
   # Get the last modification times
   src_mod_time=$(get_mod_time "$src_file")
   dest_mod_time=$(get_mod_time "$dest_file")
   
   if [ ! -f "$dest_file" ] || [ "$src_mod_time" -ne "$dest_mod_time" ]; then
-    cp "$src_file" tmp
+    cp "$src_file" "$temp_file"
     # Find the end of frontmatter (second set of ---)
-    end_of_frontmatter=$(awk '/^---$/ { ++c } c==2 { print NR; exit }' tmp)
+    end_of_frontmatter=$(awk '/^---$/ { ++c } c==2 { print NR; exit }' "$temp_file")
 
     # Check if two lines below the end of frontmatter starts with "# "
-    title_line=$(awk "NR==$(($end_of_frontmatter + 2)) { if (\$0 ~ /^# /) print \$0 }" tmp)
+    title_line=$(awk "NR==$(($end_of_frontmatter + 2)) { if (\$0 ~ /^# /) print \$0 }" "$temp_file")
 
     if [ -n "$title_line" ]; then
         # Extract title from the line
         title=$(echo "$title_line" | sed 's/^# //')
 
         # Replace title: field in frontmatter
-        sed -i '' -e "s/^title: .*/title: \"$title\"/" tmp
+        sed -i '' -e "s/^title: .*/title: \"$title\"/" "$temp_file"
 
         # Delete the line containing the title
-        sed -i '' -e "$(($end_of_frontmatter + 2))d" tmp
+        sed -i '' -e "$(($end_of_frontmatter + 2))d" "$temp_file"
     fi
 
     # Update the modDatetime field in the file
-    sed "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" tmp
-    
-    # Update links in the file
-    update_links tmp
+    sed "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$temp_file" > tmp
 
-    # Move updated file to destination directory
+    # Update links in the file
+    update_links "$temp_file"
+    
+    # # Move updated file to destination directory
     mv tmp "$dest_file"
+    rm "$temp_file"
   fi
 done
 
-# # Commit changes to git
-# git add .
-# git commit -m "Sync posts"
-# git push
+# Commit changes to git
+git add .
+git commit -m "Sync posts"
+git push
 
 echo "Done syncing posts."
