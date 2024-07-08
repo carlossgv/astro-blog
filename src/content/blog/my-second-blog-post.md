@@ -10,6 +10,8 @@ author: Carlos G.
 description: ""
 draft: false
 featured: false
+modDateTime: ""
+pubDateTime: ""
 title: My Second Blog Post
 ---
 
