@@ -3,6 +3,7 @@ id: my-second-blog-post
 aliases:
   - My second Blog Post
   - My Second Blog Post
+  - My Second Blog Post 2
 tags: []
 author: Carlos G.
 description: ""
@@ -10,7 +11,7 @@ featured: false
 title: My Second Blog Post
 ---
 
-# My Second Blog Post
+# My Second Blog Post 2
 
 ### Creating internal links
 

@@ -2,6 +2,7 @@
 id: my-first-blog-post
 aliases:
   - My First Blog Post
+  - My First Blog Post 1
 tags: []
 author: Carlos G.
 description: ""
@@ -9,7 +10,7 @@ featured: false
 title: My First Blog Post
 ---
 
-# My First Blog Post
+# My First Blog Post 1
 
 ### Creating internal links
 
