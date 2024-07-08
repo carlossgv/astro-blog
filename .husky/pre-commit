@@ -8,6 +8,7 @@ while read _ file; do
   frontmatter=$(echo "$filecontent" | awk -v RS='---' 'NR==2{print}')
   draft=$(echo "$frontmatter" | awk '/^draft: /{print $2}')
   echo "Checking $file"
+  echo "Draft: $draft"
   if [ "$draft" = "false" ]; then
     echo "$file modDateTime updated"
     cat $file | sed "/---.*/,/---.*/s/^modDatetime:.*$/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%SZ")/" > tmp

@@ -4,6 +4,7 @@ aliases:
   - My second Blog Post
   - My Second Blog Post
   - My Second Blog Post 2
+  - My Second Blog Post 3
 tags: []
 author: Carlos G.
 description: ""
@@ -11,7 +12,7 @@ featured: false
 title: My Second Blog Post
 ---
 
-# My Second Blog Post 2
+# My Second Blog Post 3
 
 ### Creating internal links
 
