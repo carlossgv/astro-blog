@@ -11,7 +11,7 @@ featured: false
 title: My Second Blog Post
 ---
 
-# My Second Blog Post
+# My Second Blog Post 2
 
 ### Creating internal links
 
