@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 # Modified files, update the modDatetime
 git diff --cached --name-status |
 grep -i '^M.*\.md$' |
