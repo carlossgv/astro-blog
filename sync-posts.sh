@@ -19,8 +19,7 @@ else
 fi
 
 # Copy assets
-for FILE in $ASSETS_FILES
-do
+for FILE in $ASSETS_FILES; do
   src_file="$FILE"
   dest_file="$ASSETS_DEST_DIR$(basename $FILE)"
   
@@ -28,8 +27,7 @@ do
   src_mod_time=$($stat_command "$src_file")
   dest_mod_time=$($stat_command "$dest_file")
   
-  if [ ! -f "$dest_file" ] || [ "$src_mod_time" -ne "$dest_mod_time" ]
-  then
+  if [ ! -f "$dest_file" ] || [ "$src_mod_time" -ne "$dest_mod_time" ]; then
     cp "$src_file" "$dest_file"
   fi
 done
@@ -43,8 +41,7 @@ update_links() {
   sed "s,$src_pattern,$dest_pattern,g" "$file" > tmp
 }
 
-for FILE in $FILES
-do
+for FILE in $FILES; do
   src_file="$POSTS_DIR$FILE"
   dest_file="$DEST_DIR$FILE"
   
@@ -52,29 +49,38 @@ do
   src_mod_time=$($stat_command "$src_file")
   dest_mod_time=$($stat_command "$dest_file")
   
-  if [ ! -f "$dest_file" ] || [ "$src_mod_time" -ne "$dest_mod_time" ]
-  then
-    # Get the title of the post from # title: in the file
-    title=$(grep "^title: " "$src_file" | sed "s/^title: //")
-    # Replace title: rest of line with title: "title"
-    sed -i "s/^title: .*/title: \"$title\"/" "$src_file"
-    # Delete line with # title
-    sed -i "/^# title: /d" "$src_file"
+  if [ ! -f "$dest_file" ] || [ "$src_mod_time" -ne "$dest_mod_time" ]; then
+    # Find the end of frontmatter (second set of ---)
+    end_of_frontmatter=$(awk '/^---$/ { ++c } c==2 { print NR; exit }' "$src_file")
+
+    # Check if two lines below the end of frontmatter starts with "# "
+    title_line=$(awk "NR==$(($end_of_frontmatter + 2)) { if (\$0 ~ /^# /) print \$0 }" "$src_file")
+
+    if [ -n "$title_line" ]; then
+        # Extract title from the line
+        title=$(echo "$title_line" | sed 's/^# //')
+
+        # Replace title: field in frontmatter
+        sed -i '' -e "s/^title: .*/title: \"$title\"/" "$src_file"
+
+        # Delete the line containing the title
+        sed -i '' -e "$(($end_of_frontmatter + 2))d" "$src_file"
+    fi
 
     # Update the modDatetime field in the file
-    sed "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$src_file" > tmp
+    sed "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$src_file" > tmp_dest_file
     
     # Update links in the file
     update_links "$src_file"
 
-    # cp tmp "$src_file"
-    mv tmp "$dest_file"
+    # Move updated file to destination directory
+    mv tmp_dest_file "$dest_file"
   fi
 done
 
+# Commit changes to git
 git add .
 git commit -m "Sync posts"
 git push
 
 echo "Done syncing posts."
-
