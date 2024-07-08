@@ -7,8 +7,8 @@ while read _ file; do
   filecontent=$(cat "$file")
   frontmatter=$(echo "$filecontent" | awk -v RS='---' 'NR==2{print}')
   draft=$(echo "$frontmatter" | awk '/^draft: /{print $2}')
+  echo "updated file"
   if [ "$draft" = "false" ]; then
-    echo "$file modDateTime updated"
     cat $file | sed "/---.*/,/---.*/s/^modDatetime:.*$/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%SZ")/" > tmp
     mv tmp $file
     git add $file
@@ -23,6 +23,7 @@ done
 
 # New files, add/update the pubDatetime
 git diff --cached --name-status | egrep -i "^(A).*\.(md)$" | while read a b; do
+  echo "new file added"
   cat $b | sed "/---.*/,/---.*/s/^pubDatetime:.*$/pubDatetime: $(date -u "+%Y-%m-%dT%H:%M:%SZ")/" > tmp
   mv tmp $b
   git add $b
