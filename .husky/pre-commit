@@ -13,6 +13,7 @@ while read _ file; do
     echo "$file modDateTime updated"
     cat $file | sed "/---.*/,/---.*/s/^modDatetime:.*$/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%SZ")/" > tmp
     mv tmp $file
+    echo "git add $file"
     git add $file
   fi
   if [ "$draft" = "first" ]; then
