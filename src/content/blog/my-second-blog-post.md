@@ -6,7 +6,7 @@ tags: []
 author: Carlos G.
 description: ""
 featured: false
-modDatetime: 2024-07-08T21:29:45.000Z
+modDatetime: 2024-07-08T19:03:35.000Z
 pubDatetime: 2024-07-08T12:43:29.000Z
 title: "My Tips"
 ---
