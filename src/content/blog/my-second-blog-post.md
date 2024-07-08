@@ -34,9 +34,7 @@ These are the elements outlined in John Gruber’s original design document. All
 ### Heading
 
 # H1
-
 ## H2
-
 ### H3
 
 ### Bold
@@ -45,7 +43,7 @@ These are the elements outlined in John Gruber’s original design document. All
 
 ### Italic
 
-_italicized text_
+*italicized text*
 
 ### Blockquote
 
@@ -78,11 +76,9 @@ _italicized text_
 ### Image
 
 #### Image from the web
-
 ![alt text](https://www.markdownguide.org/assets/images/tux.png)
 
 #### Local image
-
 ![local image](./bean.jpeg)
 
 ## Extended Syntax
@@ -91,10 +87,10 @@ These elements extend the basic syntax by adding additional features. Not all Ma
 
 ### Table
 
-| Syntax    | Description |
-| --------- | ----------- |
-| Header    | Title       |
-| Paragraph | Text        |
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
 
 ### Fenced Code Block
 
