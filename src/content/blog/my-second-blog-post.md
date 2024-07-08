@@ -6,7 +6,7 @@ tags: []
 author: Carlos G.
 description: ""
 featured: false
-modDatetime: 2024-07-08T18:56:24.000Z
+modDatetime: 2024-07-08T19:03:35.000Z
 pubDatetime: 2024-07-08T12:43:29.000Z
 title: My Tips
 ---
@@ -93,7 +93,7 @@ These are the elements outlined in John Gruber’s original design document. All
 ![alt text](https://www.markdownguide.org/assets/images/tux.png)
 
 #### Local image
-![local image](./bean.jpeg)
+![text.png](@assets/images/text.png)
 
 ## Extended Syntax
 
