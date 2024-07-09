@@ -48,11 +48,10 @@ done
 # Function to update links in a file
 update_links() {
   local file="$1"
-  echo "Updating links in $file"
   local src_pattern="3-resources/blog-posts/assets/imgs/"
   local dest_pattern="@assets/images/"
 
-  sed -i "" "s,$src_pattern,$dest_pattern,g" "$file" 
+  sed -i "s,$src_pattern,$dest_pattern,g" "$file" 
 }
 
 for FILE in $FILES; do
@@ -75,8 +74,8 @@ for FILE in $FILES; do
 
     if [ -n "$title_line" ]; then
         # Extract title from the line
-        title=$(echo "$title_line" | sed 's/^# //')
-        echo $title
+        title=$(echo "$title_line" | sed "s/^# //")
+        echo "title: "$title
 
         # Replace title: field in frontmatter
         sed -i -e "s/^title: .*/title: \"$title\"/" "$temp_file"
