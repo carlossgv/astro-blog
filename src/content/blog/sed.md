@@ -6,26 +6,11 @@ tags: []
 author: Carlos G.
 description: ""
 featured: false
-modDatetime: 2024-07-09T07:15:30.000Z
-pubDatetime: 2024-07-09T07:15:30.000Z
-title: Sed
+modDatetime: 2024-07-09T13:18:10.000Z
+pubDatetime: 2024-07-09T07:18:00.000Z
+title: "Sed"
 ---
 
-
----
-id: sed
-aliases:
-  - Sed
-tags: []
-author: Carlos G.
-description: ""
-featured: false
-modDatetime: 2024-07-09T07:07:20.000Z
-pubDatetime: 2024-07-09T07:07:20.000Z
-title: Sed
----
-
-# Sed
 
 ## Use same command in MacOS and Linux
 
