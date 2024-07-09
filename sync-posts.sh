@@ -35,14 +35,12 @@ get_mod_time() {
 for FILE in $ASSETS_FILES; do
   src_file="$FILE"
   dest_file="$ASSETS_DEST_DIR$(basename $FILE)"
-  echo "Copying $src_file to $dest_file"
   
   # Get the last modification times
   src_mod_time=$(get_mod_time "$src_file")
   dest_mod_time=$(get_mod_time "$dest_file")
   
   if [ ! -f "$dest_file" ] || [ "$src_mod_time" -ne "$dest_mod_time" ]; then
-    echo "Copying $src_file to $dest_file"
     cp "$src_file" "$dest_file"
   fi
 done
@@ -52,9 +50,6 @@ update_links() {
   local file="$1"
   local src_pattern="3-resources/blog-posts/assets/imgs/"
   local dest_pattern="@assets/images/"
-
-  echo "updating link in file"
-  echo $file
 
   $sed -i "s,$src_pattern,$dest_pattern,g" "$file" 
 }
@@ -78,7 +73,6 @@ for FILE in $FILES; do
     if [ -n "$title_line" ]; then
         # Extract title from the line
         title=$(echo "$title_line" | $sed "s/^# //")
-        echo "title: "$title
 
         # Replace title: field in frontmatter
         $sed -i -e "s/^title: .*/title: \"$title\"/" "$dest_file"
