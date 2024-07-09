@@ -52,7 +52,7 @@ update_links() {
   local src_pattern="3-resources/blog-posts/assets/imgs/"
   local dest_pattern="@assets/images/"
 
-  sed -i "s,$src_pattern,$dest_pattern,g" "$file" 
+  sed -i "" "s,$src_pattern,$dest_pattern,g" "$file" 
 }
 
 for FILE in $FILES; do

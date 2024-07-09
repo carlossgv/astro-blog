@@ -78,8 +78,8 @@ These are the elements outlined in John Gruber’s original design document. All
 ![alt text](https://www.markdownguide.org/assets/images/tux.png)
 
 #### Local image
-![text.png](3-resources/blog-posts/assets/imgs/text.png)
-![text.png](3-resources/blog-posts/assets/imgs/text.png)
+![text.png](@assets/images/text.png)
+![text.png](@assets/images/text.png)
 
 ## Extended Syntax
 
