@@ -77,11 +77,11 @@ for FILE in $FILES; do
         title=$(echo "$title_line" | sed "s/^# //")
         echo "title: "$title
 
-        # # Replace title: field in frontmatter
-        # sed -i -e "s/^title: .*/title: \"$title\"/" "$temp_file"
-        #
-        # # Delete the line containing the title
-        # sed -i -e "$(($end_of_frontmatter + 2))d" "$temp_file"
+        # Replace title: field in frontmatter
+        sed -i -e "s/^title: .*/title: \"$title\"/" "$temp_file"
+
+        # Delete the line containing the title
+        sed -i -e "$(($end_of_frontmatter + 2))d" "$temp_file"
     fi
 
     # Update the modDatetime field in the file
