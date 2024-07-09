@@ -52,7 +52,7 @@ update_links() {
   local src_pattern="3-resources/blog-posts/assets/imgs/"
   local dest_pattern="@assets/images/"
 
-  sed -i "" "s,$src_pattern,$dest_pattern,g" "$file" 
+  sed -i "s,$src_pattern,$dest_pattern,g" "$file" 
 }
 
 for FILE in $FILES; do
@@ -79,14 +79,14 @@ for FILE in $FILES; do
         echo $title
 
         # Replace title: field in frontmatter
-        sed -i "" -e "s/^title: .*/title: \"$title\"/" "$temp_file"
+        sed -i -e "s/^title: .*/title: \"$title\"/" "$temp_file"
 
         # Delete the line containing the title
-        sed -i "" -e "$(($end_of_frontmatter + 2))d" "$temp_file"
+        sed -i -e "$(($end_of_frontmatter + 2))d" "$temp_file"
     fi
 
     # Update the modDatetime field in the file
-    sed -i "" "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$temp_file" 
+    sed -i "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$temp_file" 
 
     # Update links in the file
     update_links "$temp_file"
