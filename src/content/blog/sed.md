@@ -2,13 +2,14 @@
 id: sed
 aliases:
   - Sed
+  - Sed updated
 tags: []
 author: Carlos G.
 description: ""
 featured: false
-modDatetime: 2024-07-09T13:28:55.000Z
+modDatetime: 2024-07-09T13:34:58.000Z
 pubDatetime: 2024-07-09T07:18:00.000Z
-title: "Sed"
+title: "Sed updated"
 ---
 
 
