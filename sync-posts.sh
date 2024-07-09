@@ -59,6 +59,7 @@ for FILE in $FILES; do
   src_file="$POSTS_DIR$FILE"
   dest_file="$DEST_DIR$FILE"
   temp_file="$DEST_DIR/temp.md"
+  touch "$temp_file"
   
   # Get the last modification times
   src_mod_time=$(get_mod_time "$src_file")
