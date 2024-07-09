@@ -7,7 +7,7 @@ tags: []
 author: Carlos G.
 description: ""
 featured: false
-modDatetime: 2024-07-09T13:00:19.000Z
+modDatetime: 2024-07-09T13:00:56.000Z
 pubDatetime: 2024-07-08T16:10:04.000Z
 title: Unit Testing With Jest
 ---

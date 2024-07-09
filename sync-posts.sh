@@ -76,6 +76,7 @@ for FILE in $FILES; do
     if [ -n "$title_line" ]; then
         # Extract title from the line
         title=$(echo "$title_line" | sed 's/^# //')
+        echo $title
 
         # Replace title: field in frontmatter
         sed -i "" -e "s/^title: .*/title: \"$title\"/" "$temp_file"
