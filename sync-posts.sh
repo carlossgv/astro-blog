@@ -52,7 +52,7 @@ update_links() {
   local src_pattern="3-resources/blog-posts/assets/imgs/"
   local dest_pattern="@assets/images/"
 
-  sed "s,$src_pattern,$dest_pattern,g" "$file" > $file
+  sed "s,$src_pattern,$dest_pattern,g" "$file" 
 }
 
 for FILE in $FILES; do
@@ -85,12 +85,12 @@ for FILE in $FILES; do
     fi
 
     # Update the modDatetime field in the file
-    sed "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$temp_file" > "$temp_file"
+    sed "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$temp_file" 
 
     # Update links in the file
     update_links "$temp_file"
     
-    # # Move updated file to destination directory
+    #  Move updated file to destination directory
     mv "$temp_file" "$dest_file"
   fi
 done
