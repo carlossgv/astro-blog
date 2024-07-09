@@ -92,7 +92,6 @@ for FILE in $FILES; do
     
     # # Move updated file to destination directory
     mv "$temp_file" "$dest_file"
-    rm "$temp_file"
   fi
 done
 
