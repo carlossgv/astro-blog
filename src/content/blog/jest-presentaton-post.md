@@ -12,26 +12,6 @@ title: Unit Testing With Jest
 ---
 
 
----
-id: main
-aliases:
-  - Unit Testing with Jest
-tags:
-  - jest
-  - unit testing
-  - blog
-  - presentation
-  - excalidraw
-  - provider team
-  - TDD
-author: Carlos G.
-description: ""
-featured: false
-modDatetime: 2024-07-08T16:09:27.000Z
-pubDatetime: 2024-07-08T16:09:27.000Z
-title: Unit Testing With Jest
----
-
 # Unit Testing with Jest
 
 Links:

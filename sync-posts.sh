@@ -1,11 +1,12 @@
 #!/bin/bash
 
+cd ~/personal/astro-blog
 POSTS_DIR=~/second-brain/3-resources/blog-posts
-DEST_DIR=./src/content/blog
+DEST_DIR=~/personal/astro-blog/src/content/blog
 FILES=$(find $POSTS_DIR -type f -name "*.md" | sed "s,$POSTS_DIR,,g")
 
 ASSETS_DIR=~/second-brain/3-resources/blog-posts/assets/imgs
-ASSETS_DEST_DIR=./src/assets/images/
+ASSETS_DEST_DIR=~/personal/astro-blog/src/assets/images/
 ASSETS_FILES=$(find $ASSETS_DIR -type f)
 
 # Determine the appropriate stat command based on the operating system
@@ -99,4 +100,5 @@ git add .
 git commit -m "Sync posts"
 git push
 
+cd -
 echo "Done syncing posts."
