@@ -2,6 +2,7 @@
 id: jest-presentaton-post
 aliases:
   - Unit Testing with Jest
+  - Unit Testing with Jest synced from another folder
 tags: []
 author: Carlos G.
 description: ""
@@ -12,7 +13,7 @@ title: Unit Testing With Jest
 ---
 
 
-# Unit Testing with Jest
+# Unit Testing with Jest synced from another folder
 
 Links:
 [My Jest Workflow](1-projects/jest-presentation/1720096523-my-jest-workflow.md)
