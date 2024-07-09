@@ -9,11 +9,13 @@ ASSETS_DIR=~/second-brain/3-resources/blog-posts/assets/imgs
 ASSETS_DEST_DIR=~/personal/astro-blog/src/assets/images/
 ASSETS_FILES=$(find $ASSETS_DIR -type f)
 
+sed=sed
 # Determine the appropriate stat command based on the operating system
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   stat_command="stat -c %Y"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   stat_command="stat -f %m"
+  sed=gsed
 else
   echo "Unsupported OS type: $OSTYPE"
   exit 1
@@ -51,47 +53,45 @@ update_links() {
   local src_pattern="3-resources/blog-posts/assets/imgs/"
   local dest_pattern="@assets/images/"
 
-  sed -i "s,$src_pattern,$dest_pattern,g" "$file" 
+  echo "updating link in file"
+  echo $file
+
+  $sed -i "s,$src_pattern,$dest_pattern,g" "$file" 
 }
 
 for FILE in $FILES; do
   src_file="$POSTS_DIR$FILE"
   dest_file="$DEST_DIR$FILE"
-  temp_file="$DEST_DIR/temp.md"
-  touch "$temp_file"
   
   # Get the last modification times
   src_mod_time=$(get_mod_time "$src_file")
   dest_mod_time=$(get_mod_time "$dest_file")
   
   if [ ! -f "$dest_file" ] || [ "$src_mod_time" -ne "$dest_mod_time" ]; then
-    cp "$src_file" "$temp_file"
+    cp $src_file $dest_file
     # Find the end of frontmatter (second set of ---)
-    end_of_frontmatter=$(awk '/^---$/ { ++c } c==2 { print NR; exit }' "$temp_file")
+    end_of_frontmatter=$(awk '/^---$/ { ++c } c==2 { print NR; exit }' "$dest_file")
 
     # Check if two lines below the end of frontmatter starts with "# "
-    title_line=$(awk "NR==$(($end_of_frontmatter + 2)) { if (\$0 ~ /^# /) print \$0 }" "$temp_file")
+    title_line=$(awk "NR==$(($end_of_frontmatter + 2)) { if (\$0 ~ /^# /) print \$0 }" "$dest_file")
 
     if [ -n "$title_line" ]; then
         # Extract title from the line
-        title=$(echo "$title_line" | sed "s/^# //")
+        title=$(echo "$title_line" | $sed "s/^# //")
         echo "title: "$title
 
         # Replace title: field in frontmatter
-        sed -i -e "s/^title: .*/title: \"$title\"/" "$temp_file"
+        $sed -i -e "s/^title: .*/title: \"$title\"/" "$dest_file"
 
         # Delete the line containing the title
-        sed -i -e "$(($end_of_frontmatter + 2))d" "$temp_file"
+        $sed -i -e "$(($end_of_frontmatter + 2))d" "$dest_file"
     fi
 
     # Update the modDatetime field in the file
-    sed -i "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$temp_file" 
+    $sed -i "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$dest_file" 
 
     # Update links in the file
-    update_links "$temp_file"
-    
-    #  Move updated file to destination directory
-    mv "$temp_file" "$dest_file"
+    update_links "$dest_file"
   fi
 done
 
