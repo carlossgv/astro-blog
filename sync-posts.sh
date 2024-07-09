@@ -85,7 +85,7 @@ for FILE in $FILES; do
     fi
 
     # Update the modDatetime field in the file
-    sed "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$temp_file" 
+    sed -i "s/^modDatetime: .*/modDatetime: $(date -u "+%Y-%m-%dT%H:%M:%S.000Z")/" "$temp_file" 
 
     # Update links in the file
     update_links "$temp_file"
