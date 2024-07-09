@@ -9,9 +9,10 @@ description: ""
 featured: false
 modDatetime: 2024-07-08T16:10:04.000Z
 pubDatetime: 2024-07-08T16:10:04.000Z
-title: "Unit Testing with Jest synced from another folder"
+title: Unit Testing With Jest
 ---
 
+# Unit Testing with Jest synced from another folder
 
 Links:
 [My Jest Workflow](1-projects/jest-presentation/1720096523-my-jest-workflow.md)
