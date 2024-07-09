@@ -8,7 +8,7 @@ tags: []
 author: Carlos G.
 description: ""
 featured: false
-modDatetime: 2024-07-08T19:03:35.000Z
+modDatetime: 2024-07-09T13:00:19.000Z
 pubDatetime: 2024-07-08T12:43:29.000Z
 title: "Markdown Cheat Sheet"
 ---
@@ -77,8 +77,8 @@ These are the elements outlined in John Gruber’s original design document. All
 ![alt text](https://www.markdownguide.org/assets/images/tux.png)
 
 #### Local image
-![text.png](3-resources/blog-posts/assets/imgs/text.png)
-![text.png](3-resources/blog-posts/assets/imgs/text.png)
+![text.png](@assets/images/text.png)
+![text.png](@assets/images/text.png)
 
 ## Extended Syntax
 
