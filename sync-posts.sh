@@ -90,7 +90,7 @@ for FILE in $FILES; do
     update_links "$temp_file"
     
     # # Move updated file to destination directory
-    mv tmp "$dest_file"
+    mv "$temp_file" "$dest_file"
     rm "$temp_file"
   fi
 done
