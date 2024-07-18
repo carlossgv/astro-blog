@@ -6,7 +6,7 @@ tags: []
 author: Carlos G.
 description: ""
 featured: false
-modDatetime: 2024-07-18T23:34:34.000Z
+modDatetime: 2024-07-18T23:41:18.000Z
 pubDatetime: 2024-07-18T17:34:24.000Z
 title: "Curriculum Vitae: Carlos Gonzalez"
 ---
@@ -14,6 +14,12 @@ title: "Curriculum Vitae: Carlos Gonzalez"
 
 ## Carlos Santiago González Villafañe
 ### Senior Full Stack Software Engineer
+
+### Table of Contents
+1. [Contact Information](#contact-information)
+2. [Summary](#summary)
+3. [Work Experience](#work-experience)
+4. [Education](#education)
 
 ### Contact Information
 - **Mobile:** +56 9 5386 9899
