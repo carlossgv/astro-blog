@@ -6,7 +6,7 @@ tags: []
 author: Carlos G.
 description: ""
 featured: false
-modDatetime: 2024-07-18T23:41:18.000Z
+modDatetime: 2024-07-19T02:18:27.000Z
 pubDatetime: 2024-07-18T17:34:24.000Z
 title: "Curriculum Vitae: Carlos Gonzalez"
 ---
@@ -16,12 +16,14 @@ title: "Curriculum Vitae: Carlos Gonzalez"
 ### Senior Full Stack Software Engineer
 
 ### Table of Contents
+
 1. [Contact Information](#contact-information)
 2. [Summary](#summary)
 3. [Work Experience](#work-experience)
 4. [Education](#education)
 
 ### Contact Information
+
 - **Mobile:** +56 9 5386 9899
 - **Email:** carlossgv@gmail.com
 - **Location:** Santiago, Chile
@@ -29,11 +31,24 @@ title: "Curriculum Vitae: Carlos Gonzalez"
 - **GitHub:** [github.com/carlossgv](https://github.com/carlossgv)
 
 ### Summary
+
 Senior Full Stack Software Developer based in Santiago, Chile, with extensive experience in backend and frontend development. Proven expertise in promoting and implementing Clean Architecture, Unit Testing, TDD, code readability, and scalability to ensure cohesive and efficient team workflows.
 
 Proficient in TypeScript and Node.js, with hands-on experience in backend frameworks such as Express and NestJS, and frontend frameworks like React and Next.js. Bilingual, with native proficiency in Spanish and advanced communication skills in English.
 
 Additionally, possess a strong background in Technical Sales as a Consultant for the industrial market.
+
+### Skills
+
+- TypeScript
+- JavaScript
+- Node.js
+- React
+- Docker
+- Kubernetes
+- AWS
+- Azure
+- Git
 
 ### Work Experience
 
