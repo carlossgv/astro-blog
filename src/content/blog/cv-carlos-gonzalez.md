@@ -5,7 +5,9 @@ aliases:
 tags: []
 author: Carlos G.
 description: ""
-featured: true
+featured: false
+draft: false
+hidden: true
 modDatetime: 2024-07-19T02:32:12.000Z
 pubDatetime: 2024-07-18T17:34:24.000Z
 title: "Curriculum Vitae: Carlos Gonzalez"
