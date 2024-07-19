@@ -6,7 +6,7 @@ tags: []
 author: Carlos G.
 description: ""
 featured: true
-modDatetime: 2024-07-19T02:28:48.000Z
+modDatetime: 2024-07-19T02:32:12.000Z
 pubDatetime: 2024-07-18T17:34:24.000Z
 title: "Curriculum Vitae: Carlos Gonzalez"
 ---
@@ -27,7 +27,7 @@ title: "Curriculum Vitae: Carlos Gonzalez"
 - **Mobile:** +56 9 5386 9899
 - **Email:** carlossgv@gmail.com
 - **Location:** Santiago, Chile
-- **LinkedIn Profile:** [linkedin.com/in/carlossgv](https://www.linkedin.com/in/carlossgv)
+- **LinkedIn:** [linkedin.com/in/carlossgv](https://www.linkedin.com/in/carlossgv)
 - **GitHub:** [github.com/carlossgv](https://github.com/carlossgv)
 
 ### Summary
