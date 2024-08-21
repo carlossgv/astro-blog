@@ -2,13 +2,14 @@
 id: cv-carlos-gonzalez
 aliases:
   - "Curriculum Vitae: Carlos Gonzalez"
-tags: []
+tags:
+  - cv
+  - curriculum
+  - job
 author: Carlos G.
 description: ""
-featured: false
-draft: false
-hidden: true
-modDatetime: 2024-07-19T02:32:12.000Z
+featured: true
+modDatetime: 2024-08-21T21:33:56.000Z
 pubDatetime: 2024-07-18T17:34:24.000Z
 title: "Curriculum Vitae: Carlos Gonzalez"
 ---
